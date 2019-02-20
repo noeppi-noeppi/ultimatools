@@ -39,7 +39,6 @@ public class SkyblockUltimaTools {
 
             for(Item item : Registry.ITEMS_TO_REGISTER) {
                 event.getRegistry().register(item);
-                System.out.println(item.getRegistryName());
             }
         }
 
@@ -54,8 +53,8 @@ public class SkyblockUltimaTools {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        System.out.println(LibMisc.MODID + " is loading");
         logger = event.getModLog();
+        logger.info(LibMisc.MODID + " is loading");
     }
 
     @Mod.EventHandler
@@ -64,7 +63,7 @@ public class SkyblockUltimaTools {
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        System.out.println(LibMisc.MODID + " is finished.");
+        logger.info(LibMisc.MODID + " finished loading.");
     }
 
 }

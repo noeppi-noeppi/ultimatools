@@ -13,7 +13,7 @@ public class ultimatoolsTab extends CreativeTabs {
 
     @Override
     public ItemStack getTabIconItem() {
-        return new ItemStack(ModItems.crystalCyan);
+        return new ItemStack(ModItems.crystalGay);
     }
 
 }

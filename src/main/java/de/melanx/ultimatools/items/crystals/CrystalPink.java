@@ -24,7 +24,7 @@ public class CrystalPink extends CrystalBase {
             Block block = worldIn.getBlockState(pos).getBlock();
             if(block == Blocks.GRASS || block == Blocks.DIRT) {
                 Random rand = new Random();
-                int x = rand.nextInt(10);
+                int x = rand.nextInt(9);
                 if(x == 0) {
                     EntityCow entityCow = new EntityCow(worldIn);
                     entityCow.setGrowingAge(-24000);
@@ -61,21 +61,16 @@ public class CrystalPink extends CrystalBase {
                     entityParrot.setLocationAndAngles(pos.getX() + hitX, pos.getY() + hitY, pos.getZ() + hitZ, 0, 0);
                     worldIn.spawnEntity(entityParrot);
                 } else if(x == 7) {
-                    EntityParrot entityParrot = new EntityParrot(worldIn);
-                    entityParrot.setGrowingAge(-24000);
-                    entityParrot.setLocationAndAngles(pos.getX() + hitX, pos.getY() + hitY, pos.getZ() + hitZ, 0, 0);
-                    worldIn.spawnEntity(entityParrot);
-                } else if(x == 8) {
                     EntityPig entityPig = new EntityPig(worldIn);
                     entityPig.setGrowingAge(-24000);
                     entityPig.setLocationAndAngles(pos.getX() + hitX, pos.getY() + hitY, pos.getZ() + hitZ, 0, 0);
                     worldIn.spawnEntity(entityPig);
-                } else if(x == 9) {
+                } else if(x == 8) {
                     EntityRabbit entityRabbit = new EntityRabbit(worldIn);
                     entityRabbit.setGrowingAge(-24000);
                     entityRabbit.setLocationAndAngles(pos.getX() + hitX, pos.getY() + hitY, pos.getZ() + hitZ, 0, 0);
                     worldIn.spawnEntity(entityRabbit);
-                } else if(x == 10) {
+                } else if(x == 9) {
                     EntitySheep entitySheep = new EntitySheep(worldIn);
                     entitySheep.setGrowingAge(-24000);
                     entitySheep.setLocationAndAngles(pos.getX() + hitX, pos.getY() + hitY, pos.getZ() + hitZ, 0, 0);

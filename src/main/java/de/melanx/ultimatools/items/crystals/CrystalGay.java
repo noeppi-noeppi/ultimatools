@@ -27,6 +27,7 @@ public class CrystalGay extends CrystalBase {
 
     public CrystalGay() {
         super("ultima_god");
+        setContainerItem(this);
     }
 
     @Nonnull
@@ -88,7 +89,7 @@ public class CrystalGay extends CrystalBase {
             if(player.isSneaking()) {
                 if(block == Blocks.GRASS || block == Blocks.DIRT) {
                     Random rand = new Random();
-                    int x = rand.nextInt(10);
+                    int x = rand.nextInt(9);
                     if(x == 0) {
                         EntityCow entityCow = new EntityCow(world);
                         entityCow.setGrowingAge(-24000);
@@ -125,21 +126,16 @@ public class CrystalGay extends CrystalBase {
                         entityParrot.setLocationAndAngles(pos.getX() + hitX, pos.getY() + hitY, pos.getZ() + hitZ, 0, 0);
                         world.spawnEntity(entityParrot);
                     } else if(x == 7) {
-                        EntityParrot entityParrot = new EntityParrot(world);
-                        entityParrot.setGrowingAge(-24000);
-                        entityParrot.setLocationAndAngles(pos.getX() + hitX, pos.getY() + hitY, pos.getZ() + hitZ, 0, 0);
-                        world.spawnEntity(entityParrot);
-                    } else if(x == 8) {
                         EntityPig entityPig = new EntityPig(world);
                         entityPig.setGrowingAge(-24000);
                         entityPig.setLocationAndAngles(pos.getX() + hitX, pos.getY() + hitY, pos.getZ() + hitZ, 0, 0);
                         world.spawnEntity(entityPig);
-                    } else if(x == 9) {
+                    } else if(x == 8) {
                         EntityRabbit entityRabbit = new EntityRabbit(world);
                         entityRabbit.setGrowingAge(-24000);
                         entityRabbit.setLocationAndAngles(pos.getX() + hitX, pos.getY() + hitY, pos.getZ() + hitZ, 0, 0);
                         world.spawnEntity(entityRabbit);
-                    } else if(x == 10) {
+                    } else if(x == 9) {
                         EntitySheep entitySheep = new EntitySheep(world);
                         entitySheep.setGrowingAge(-24000);
                         entitySheep.setLocationAndAngles(pos.getX() + hitX, pos.getY() + hitY, pos.getZ() + hitZ, 0, 0);
