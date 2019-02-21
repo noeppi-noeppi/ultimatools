@@ -17,6 +17,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Map;
@@ -25,7 +26,7 @@ import java.util.Map;
 public class SkyblockUltimaTools {
 
     public static final ultimatoolsTab creativeTab = new ultimatoolsTab();
-    public static Logger logger;
+    public static Logger logger = LogManager.getFormatterLogger(LibMisc.MODID);
 
     @SidedProxy(clientSide = LibMisc.PROXY_CLIENT, serverSide = LibMisc.PROXY_SERVER)
     public static CommonProxy PROXY;

@@ -73,7 +73,7 @@ public class CrystalGay extends CrystalBase {
                 if (!player.canPlayerEdit(pos.offset(side), side, stack)) {
                     return EnumActionResult.FAIL;
                 } else if (block != Blocks.STONE && block != Blocks.COBBLESTONE) {
-                    if (ItemDye.applyBonemeal(stack, world, pos, player, hand)) {
+                    if (ToolUtil.applyBonemeal(stack, world, pos, player, hand)) {
                         if (!world.isRemote) {
                             world.playEvent(2005, pos, 0);
                         }
