@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "ultimatools:woodgenerator" },
+    "facing=south": { "model": "ultimatools:woodgenerator", "y": 180 },
+    "facing=west":  { "model": "ultimatools:woodgenerator", "y": 270 },
+    "facing=east":  { "model": "ultimatools:woodgenerator", "y": 90 }
+  }
+}
