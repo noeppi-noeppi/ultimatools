@@ -7,10 +7,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -120,6 +117,32 @@ public class ToolUtil {
                     return EnumActionResult.SUCCESS;
                 }
             }
+        return EnumActionResult.PASS;
+    }
+
+    public static EnumActionResult upgradeOre(EntityPlayer player, World world, BlockPos pos, EnumHand hand) {
+        Block block = world.getBlockState(pos).getBlock();
+
+        if(block == Blocks.IRON_ORE) {
+            Block block1 = Blocks.GOLD_ORE;
+            return changeBlock(player, world, pos, block1, hand);
+        }
+        if(block == Blocks.GOLD_ORE) {
+            Block block1 = Blocks.REDSTONE_ORE;
+            return changeBlock(player, world, pos, block1, hand);
+        }
+        if(block == Blocks.REDSTONE_ORE || block == Blocks.LIT_REDSTONE_ORE) {
+            Block block1 = Blocks.LAPIS_ORE;
+            return changeBlock(player, world, pos, block1, hand);
+        }
+        if(block == Blocks.LAPIS_ORE) {
+            Block block1 = Blocks.DIAMOND_ORE;
+            return changeBlock(player, world, pos, block1, hand);
+        }
+        if(block == Blocks.DIAMOND_ORE) {
+            Block block1 = Blocks.EMERALD_ORE;
+            return changeBlock(player, world, pos, block1, hand);
+        }
         return EnumActionResult.PASS;
     }
 

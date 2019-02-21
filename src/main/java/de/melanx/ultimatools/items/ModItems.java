@@ -15,6 +15,7 @@ public class ModItems {
     public static CrystalRainbow crystalRainbow;
     public static CrystalBlack crystalBlack;
     public static CrystalGay crystalGay;
+    public static CrystalGray crystalGray;
 
     public static void init() {
         crystalCyan = new CrystalCyan();
@@ -28,6 +29,7 @@ public class ModItems {
         crystalRainbow = new CrystalRainbow();
         crystalBlack = new CrystalBlack();
         crystalGay = new CrystalGay();
+        crystalGray = new CrystalGray();
     }
 
 }
