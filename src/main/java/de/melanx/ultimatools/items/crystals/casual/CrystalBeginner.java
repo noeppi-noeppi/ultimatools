@@ -1,5 +1,6 @@
-package de.melanx.ultimatools.items.crystals;
+package de.melanx.ultimatools.items.crystals.casual;
 
+import de.melanx.ultimatools.items.crystals.CrystalBase;
 import de.melanx.ultimatools.util.ToolUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -14,9 +15,9 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
 
-public class CrystalCyan extends CrystalBase {
+public class CrystalBeginner extends CrystalBase {
 
-    public CrystalCyan() {
+    public CrystalBeginner() {
         super("beginner");
     }
 
@@ -35,7 +36,8 @@ public class CrystalCyan extends CrystalBase {
                 BlockPos placePos = hitPos.offset(mop.sideHit);
                 if(player.canPlayerEdit(placePos, mop.sideHit, stack)) {
                     if (((ItemBucket) Items.WATER_BUCKET).tryPlaceContainedLiquid(player, world, placePos)) {
-                        player.getCooldownTracker().setCooldown(this, ToolUtil.COOLDOWN);
+                        if(!player.isCreative())
+                            player.getCooldownTracker().setCooldown(this, ToolUtil.COOLDOWN);
                         return EnumActionResult.SUCCESS;
                     }
                 }

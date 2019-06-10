@@ -1,6 +1,7 @@
-package de.melanx.ultimatools.items.crystals;
+package de.melanx.ultimatools.items.crystals.krypto;
 
-import de.melanx.ultimatools.util.ToolUtil;
+import de.melanx.ultimatools.items.crystals.CrystalBase;
+import de.melanx.ultimatools.util.ChangeBlocks;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -10,16 +11,16 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
 
-public class CrystalLime extends CrystalBase {
+public class KryptoScholar extends CrystalBase {
 
-    public CrystalLime() {
-        super("scholar");
+    public KryptoScholar() {
+        super("krypto_scholar");
     }
 
     @Nonnull
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, @Nonnull World world, BlockPos pos, @Nonnull EnumHand hand, @Nonnull EnumFacing side, float hitX, float hitY, float hitZ) {
-        return ToolUtil.replace(player, world, pos, hand);
+        return ChangeBlocks.grassToStone(player, world, pos, hand);
     }
 
 }

@@ -1,35 +1,61 @@
 package de.melanx.ultimatools.items;
 
-import de.melanx.ultimatools.items.crystals.*;
+import de.melanx.ultimatools.items.crystals.casual.*;
+import de.melanx.ultimatools.items.crystals.krypto.*;
 
 public class ModItems {
 
-    public static CrystalCyan crystalCyan;
-    public static CrystalLime crystalLime;
-    public static CrystalGreen crystalGreen;
-    public static CrystalBronze crystalBronze;
-    public static CrystalSilver crystalSilver;
-    public static CrystalGold crystalGold;
-    public static CrystalPurple crystalPurple;
-    public static CrystalPink crystalPink;
-    public static CrystalRainbow crystalRainbow;
-    public static CrystalBlack crystalBlack;
-    public static CrystalGay crystalGay;
-    public static CrystalGray crystalGray;
+    // casual
+    public static CrystalBeginner crystalBeginner;
+    public static CrystalScholar crystalScholar;
+    public static CrystalFarmer crystalFarmer;
+    public static CrystalForestRunner crystalForestRunner;
+    public static CrystalKnight crystalKnight;
+    public static CrystalLighter crystalLighter;
+    public static CrystalSoothsayer crystalSoothsayer;
+    public static CrystalBloodMagician crystalBloodMagician;
+    public static CrystalUltimaFighter crystalUltimaFighter;
+    public static CrystalCursedKnight crystalCursedKnight;
+    public static CrystalUltimaGod crystalUltimaGod;
+    public static CrystalOreBetter crystalOreBetter;
+
+    // krypto
+    public static KryptoBeginner kryptoBeginner;
+    public static KryptoScholar kryptoScholar;
+    public static KryptoFarmer kryptoFarmer;
+//    public static KryptoForestRunner kryptoForestRunner;
+//    public static KryptoKnight kryptoKnight;
+//    public static KryptoLighter kryptoLighter;
+    public static KryptoSoothsayer kryptoSoothsayer;
+    public static KryptoBloodMagician kryptoBloodMagician;
+    public static KryptoCursedKnight kryptoCursedKnight;
 
     public static void init() {
-        crystalCyan = new CrystalCyan();
-        crystalLime = new CrystalLime();
-        crystalGreen = new CrystalGreen();
-        crystalBronze = new CrystalBronze();
-        crystalSilver = new CrystalSilver();
-        crystalGold = new CrystalGold();
-        crystalPurple = new CrystalPurple();
-        crystalPink = new CrystalPink();
-        crystalRainbow = new CrystalRainbow();
-        crystalBlack = new CrystalBlack();
-        crystalGay = new CrystalGay();
-        crystalGray = new CrystalGray();
+
+        // casual
+        crystalBeginner = new CrystalBeginner();
+        crystalScholar = new CrystalScholar();
+        crystalFarmer = new CrystalFarmer();
+        crystalForestRunner = new CrystalForestRunner();
+        crystalKnight = new CrystalKnight();
+        crystalLighter = new CrystalLighter();
+        crystalSoothsayer = new CrystalSoothsayer();
+        crystalBloodMagician = new CrystalBloodMagician();
+        crystalUltimaFighter = new CrystalUltimaFighter();
+        crystalCursedKnight = new CrystalCursedKnight();
+        crystalUltimaGod = new CrystalUltimaGod();
+        crystalOreBetter = new CrystalOreBetter();
+
+        // krypto
+        kryptoBeginner = new KryptoBeginner();
+        kryptoScholar = new KryptoScholar();
+        kryptoFarmer = new KryptoFarmer();
+//        kryptoForestRunner = new KryptoForestRunner();
+
+
+        kryptoSoothsayer = new KryptoSoothsayer();
+        kryptoBloodMagician = new KryptoBloodMagician();
+        kryptoCursedKnight = new KryptoCursedKnight();
     }
 
 }

@@ -1,7 +1,7 @@
-package de.melanx.ultimatools.items.crystals;
+package de.melanx.ultimatools.items.crystals.casual;
 
+import de.melanx.ultimatools.items.crystals.CrystalBase;
 import de.melanx.ultimatools.util.ToolUtil;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -12,9 +12,9 @@ import net.minecraft.util.EnumHand;
 
 import java.util.Random;
 
-public class CrystalPurple extends CrystalBase {
+public class CrystalSoothsayer extends CrystalBase {
 
-    public CrystalPurple() {
+    public CrystalSoothsayer() {
         super("soothsayer");
     }
 
@@ -39,7 +39,8 @@ public class CrystalPurple extends CrystalBase {
                 living.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, DURATION));
             else if(x==4)
                 living.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, DURATION, 4));
-            player.getCooldownTracker().setCooldown(this, ToolUtil.COOLDOWN);
+            if(!player.isCreative())
+                player.getCooldownTracker().setCooldown(this, ToolUtil.COOLDOWN);
             return true;
         }
         return false;

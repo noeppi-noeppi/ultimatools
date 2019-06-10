@@ -5,7 +5,6 @@ import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
@@ -15,7 +14,6 @@ import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.event.ForgeEventFactory;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class ToolUtil {
 
@@ -32,44 +30,23 @@ public class ToolUtil {
             world.setBlockState(pos, block1.getDefaultState());
         }
         ItemStack itemStack = player.getHeldItem(hand);
-        player.getCooldownTracker().setCooldown(itemStack.getItem(), COOLDOWN);
+        if(!player.isCreative())
+            player.getCooldownTracker().setCooldown(itemStack.getItem(), COOLDOWN);
         return EnumActionResult.SUCCESS;
     }
 
-    public static EnumActionResult replace(EntityPlayer player, World world, BlockPos pos, EnumHand hand) {
-        Block block = world.getBlockState(pos).getBlock();
-        if(block == Blocks.DIRT) {
-            Block block1 = Blocks.GRASS;
-            return changeBlock(player, world, pos, block1, hand);
-        }
-        return EnumActionResult.SUCCESS;
-    }
+    public static EnumActionResult changeBlockMoreCooldown(EntityPlayer player, World world, BlockPos pos, Block block1, EnumHand hand) {
 
-    public static EnumActionResult generateOre(EntityPlayer player, World world, BlockPos pos, EnumHand hand) {
-        Block block = world.getBlockState(pos).getBlock();
-        if(block == Blocks.COBBLESTONE || block == Blocks.STONE) {
-            Random rand = new Random();
-            int x = rand.nextInt(99);
-            if(x <= 49) {
-                Block block1 = Blocks.IRON_ORE;
-                return changeBlock(player, world, pos, block1, hand);
-            } else if(x <= 74) {
-                Block block1 = Blocks.GOLD_ORE;
-                return changeBlock(player, world, pos, block1, hand);
-            } else if(x <= 79) {
-                Block block1 = Blocks.DIAMOND_ORE;
-                return changeBlock(player, world, pos, block1, hand);
-            } else if(x <= 89) {
-                Block block1 = Blocks.REDSTONE_ORE;
-                return changeBlock(player, world, pos, block1, hand);
-            } else if(x <= 98) {
-                Block block1 = Blocks.LAPIS_ORE;
-                return changeBlock(player, world, pos, block1, hand);
-            } else {
-                Block block1 = Blocks.EMERALD_ORE;
-                return changeBlock(player, world, pos, block1, hand);
-            }
+        SoundType soundtype = block1.getSoundType(block1.getDefaultState(), world, pos, player);
+
+        world.playSound(null, pos, soundtype.getStepSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
+
+        if(!world.isRemote) {
+            world.setBlockState(pos, block1.getDefaultState());
         }
+        ItemStack itemStack = player.getHeldItem(hand);
+        if(!player.isCreative())
+            player.getCooldownTracker().setCooldown(itemStack.getItem(), COOLDOWN * 2);
         return EnumActionResult.SUCCESS;
     }
 
@@ -113,36 +90,11 @@ public class ToolUtil {
                     if (!world.isRemote) {
                         world.playEvent(2005, pos, 0);
                     }
-                    player.getCooldownTracker().setCooldown(itemStack.getItem(), COOLDOWN);
+                    if(!player.isCreative())
+                        player.getCooldownTracker().setCooldown(itemStack.getItem(), COOLDOWN);
                     return EnumActionResult.SUCCESS;
                 }
             }
-        return EnumActionResult.PASS;
-    }
-
-    public static EnumActionResult upgradeOre(EntityPlayer player, World world, BlockPos pos, EnumHand hand) {
-        Block block = world.getBlockState(pos).getBlock();
-
-        if(block == Blocks.IRON_ORE) {
-            Block block1 = Blocks.GOLD_ORE;
-            return changeBlock(player, world, pos, block1, hand);
-        }
-        if(block == Blocks.GOLD_ORE) {
-            Block block1 = Blocks.REDSTONE_ORE;
-            return changeBlock(player, world, pos, block1, hand);
-        }
-        if(block == Blocks.REDSTONE_ORE || block == Blocks.LIT_REDSTONE_ORE) {
-            Block block1 = Blocks.LAPIS_ORE;
-            return changeBlock(player, world, pos, block1, hand);
-        }
-        if(block == Blocks.LAPIS_ORE) {
-            Block block1 = Blocks.DIAMOND_ORE;
-            return changeBlock(player, world, pos, block1, hand);
-        }
-        if(block == Blocks.DIAMOND_ORE) {
-            Block block1 = Blocks.EMERALD_ORE;
-            return changeBlock(player, world, pos, block1, hand);
-        }
         return EnumActionResult.PASS;
     }
 

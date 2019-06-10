@@ -1,5 +1,6 @@
-package de.melanx.ultimatools.items.crystals;
+package de.melanx.ultimatools.items.crystals.casual;
 
+import de.melanx.ultimatools.items.crystals.CrystalBase;
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,9 +13,9 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class CrystalPink extends CrystalBase {
+public class CrystalBloodMagician extends CrystalBase {
 
-    public CrystalPink() {
+    public CrystalBloodMagician() {
         super("blood_magician");
     }
 
@@ -76,7 +77,8 @@ public class CrystalPink extends CrystalBase {
                     entitySheep.setLocationAndAngles(pos.getX() + hitX, pos.getY() + hitY, pos.getZ() + hitZ, 0, 0);
                     worldIn.spawnEntity(entitySheep);
                 }
-                playerIn.getCooldownTracker().setCooldown(this, 6000);
+                if(!playerIn.isCreative())
+                    playerIn.getCooldownTracker().setCooldown(this, 6000);
                 return EnumActionResult.SUCCESS;
             }
         }

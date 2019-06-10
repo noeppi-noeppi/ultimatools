@@ -1,5 +1,7 @@
-package de.melanx.ultimatools.items.crystals;
+package de.melanx.ultimatools.items.crystals.casual;
 
+import de.melanx.ultimatools.items.crystals.CrystalBase;
+import de.melanx.ultimatools.util.ChangeBlocks;
 import de.melanx.ultimatools.util.ToolUtil;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
@@ -9,7 +11,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemBucket;
-import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -23,9 +24,9 @@ import net.minecraft.world.World;
 import javax.annotation.Nonnull;
 import java.util.Random;
 
-public class CrystalGay extends CrystalBase {
+public class CrystalUltimaGod extends CrystalBase {
 
-    public CrystalGay() {
+    public CrystalUltimaGod() {
         super("ultima_god");
         setContainerItem(this);
     }
@@ -50,7 +51,8 @@ public class CrystalGay extends CrystalBase {
                         BlockPos placePos = hitPos.offset(mop.sideHit);
                         if(player.canPlayerEdit(placePos, mop.sideHit, stack)) {
                             if (((ItemBucket) Items.WATER_BUCKET).tryPlaceContainedLiquid(player, world, placePos)) {
-                                player.getCooldownTracker().setCooldown(this, ToolUtil.COOLDOWN);
+                                if(!player.isCreative())
+                                    player.getCooldownTracker().setCooldown(this, ToolUtil.COOLDOWN);
                                 return EnumActionResult.SUCCESS;
                             }
                         }
@@ -67,7 +69,7 @@ public class CrystalGay extends CrystalBase {
         // lime crystal
         else if(!player.isSneaking()) {
             if(block == Blocks.DIRT) {
-                return ToolUtil.replace(player, world, pos, hand);
+                return ChangeBlocks.dirtToGrass(player, world, pos, hand);
             } else {
                 // green crystal
                 if (!player.canPlayerEdit(pos.offset(side), side, stack)) {
@@ -77,7 +79,8 @@ public class CrystalGay extends CrystalBase {
                         if (!world.isRemote) {
                             world.playEvent(2005, pos, 0);
                         }
-                        player.getCooldownTracker().setCooldown(this, ToolUtil.COOLDOWN);
+                        if(!player.isCreative())
+                            player.getCooldownTracker().setCooldown(this, ToolUtil.COOLDOWN);
                         return EnumActionResult.SUCCESS;
                     }
                 }
@@ -141,7 +144,8 @@ public class CrystalGay extends CrystalBase {
                         entitySheep.setLocationAndAngles(pos.getX() + hitX, pos.getY() + hitY, pos.getZ() + hitZ, 0, 0);
                         world.spawnEntity(entitySheep);
                     }
-                    player.getCooldownTracker().setCooldown(this, 1200);
+                    if(!player.isCreative())
+                        player.getCooldownTracker().setCooldown(this, 1200);
                     return EnumActionResult.SUCCESS;
                 }
             }
@@ -150,7 +154,7 @@ public class CrystalGay extends CrystalBase {
 
         // rainbow crystal
         if((block == Blocks.COBBLESTONE || block == Blocks.STONE) && !player.isSneaking()) {
-            return ToolUtil.generateOre(player, world, pos, hand);
+            return ChangeBlocks.generateOre(player, world, pos, hand);
         }
         return EnumActionResult.SUCCESS;
     }
@@ -177,7 +181,8 @@ public class CrystalGay extends CrystalBase {
                 living.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, DURATION));
             else if(x==4)
                 living.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, DURATION, 4));
-            player.getCooldownTracker().setCooldown(this, ToolUtil.COOLDOWN);
+            if(!player.isCreative())
+                player.getCooldownTracker().setCooldown(this, ToolUtil.COOLDOWN);
             return true;
          }
          return false;

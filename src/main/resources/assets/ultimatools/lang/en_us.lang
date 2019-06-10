@@ -1,5 +1,6 @@
 itemGroup.ultimatools=Skyblock Ultima Tools
 
+# casual
 item.beginner.name=Beginner
 item.scholar.name=Scholar
 item.farmer.name=Farmer
@@ -11,4 +12,16 @@ item.blood_magician.name=Blood-Magician
 item.ultima_fighter.name=Ultima-Fighter
 item.cursed_knight.name=Cursed-Knight
 item.ultima_god.name=Ultima-God
+
 item.ore_better.name=Ore-Better
+
+# krypto
+item.krypto_beginner.name=Krypto Beginner
+item.krypto_scholar.name=Krypto Scholar
+item.krypto_farmer.name=Krypto Farmer
+item.krypto_forest_runner.name=Krypto Forest-Runner
+item.krypto_knight.name=Krypto Knight
+item.krypto_lighter.name=Krypto Lighter
+item.krypto_soothsayer.name=Krypto Soothsayer
+item.krypto_blood_magician.name=Krypto Blood-Magician
+item.krypto_cursed_knight.name=Krypto Cursed-Knight
